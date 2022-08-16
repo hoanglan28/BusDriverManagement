@@ -1,8 +1,6 @@
 package entity;
-import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import java.io.Serializable;
 
 public class BusLine implements AutoIdIncreasable, Serializable, NewDataCreatable {
@@ -48,7 +46,6 @@ public class BusLine implements AutoIdIncreasable, Serializable, NewDataCreatabl
         this.stopStationNumber = stopStationNumber;
     }
 
-    @Override
     public void inputNewData(){
         System.out.println("Nhập khoảng cách của tuyến xe: ");
         float distance = 0;
@@ -67,5 +64,19 @@ public class BusLine implements AutoIdIncreasable, Serializable, NewDataCreatabl
         } while (true);
 
         System.out.println("Nhập số điểm dừng của tuyến xe: ");
+        int stopStationNumber = 0;
+        do {
+            try {
+                stopStationNumber = new Scanner(System.in).nextInt();
+            } catch (InputMismatchException ex) {
+                System.out.println("Số điểm dừng của tuyến phải là số nguyên, yêu cầu nhập lại");
+                continue;
+            }
+            if (stopStationNumber > 0) {
+                this.setStopStationNumber(stopStationNumber);
+                break;
+            }
+            System.out.println("Số điểm dừng của tuyến mới không được là số âm, xin mời nhập lại");
+        } while (true);
     }
 }
