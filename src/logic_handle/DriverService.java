@@ -39,7 +39,6 @@ public class DriverService {
             MainRun.DRIVERS.add(driver);
         }
 
-        // lưu dữ liệu vào file
         FileUtil.writeDataToFile(MainRun.DRIVERS, DRIVER_FILE_NAME);
     }
 

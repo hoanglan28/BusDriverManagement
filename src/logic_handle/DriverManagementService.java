@@ -110,7 +110,7 @@ public class DriverManagementService {
                 System.out.print("Mã tuyến xe KHÔNG được là số âm, yêu cầu nhập lại: ");
             } while (true);
 
-            // tìm kiếm xem có tuyến xe trong danh sách hay không, nếu không có yêu cầu nhập lại
+
             busLine = BusLineService.findById(busLineId);
             if (!DataUtil.isNull(busLine)) {
                 break;
@@ -146,8 +146,6 @@ public class DriverManagementService {
             System.out.print("Không tìm thấy tài xế có id vừa nhập, vui lòng nhập lại: ");
         } while (true);
 
-
-        // kiểm tra xem lái xe này đã tồn tại trong bảng phân công trước đó hay chưa
 
         return driver;
     }
